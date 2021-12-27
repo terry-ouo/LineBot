@@ -7,6 +7,9 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import configparser
 import random
 
+
+app = Flask(__name__)
+
 @app.route("/")
 def index():
     homepage = "<h1>林俊宏Python測試網頁</h1>"
@@ -14,7 +17,6 @@ def index():
 line_bot_api = LineBotApi("OarzRlVTfeU6LQCmMln68L5kwkgCL12NAByh2kUoqSF5CxtiXxV79MQMbGXM2EjpANDfyFHM5058Ny59l4TzE/1PASiSijDKPIlW5RKA/NSz1CMFFumpr0F496I6zjbkOfDgAvEMRIs7onCDo3K15QdB04t89/1O/w1cDnyilFU=")
 handler = WebhookHandler("04fa00fd847749a6e3dbf463fa515371")
 
-app = Flask(__name__)
 
 # LINE 聊天機器人的基本資料
 config = configparser.ConfigParser()
