@@ -27,41 +27,29 @@ handler = WebhookHandler(config.get('line-bot', 'channel_secret'))
 
 
 # 接收 LINE 的資訊
-@app.route("/callback", methods=['POST'])
+@app.route("/callback", methods=["POST"])
 def callback():
-    signature = request.headers['X-Line-Signature']
+    # get X-Line-Signature header value
+    signature = request.headers["X-Line-Signature"]
 
+    # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
-    
+
+    # handle webhook body
     try:
-        print(body, signature)
         handler.handle(body, signature)
-        
     except InvalidSignatureError:
         abort(400)
 
-    return 'OK'
+    return "OK"
 
-# 學你說話
 @handler.add(MessageEvent, message=TextMessage)
-def pretty_echo(event):
-    
-    if event.source.user_id != "Udeadbeefdeadbeefdeadbeefdeadbeef":
-        
-        # Phoebe 愛唱歌
-        pretty_note = '♫♪♬'
-        pretty_text = ''
-        
-        for i in event.message.text:
-        
-            pretty_text += i
-            pretty_text += random.choice(pretty_note)
-    
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=pretty_text)
-        )
+def handle_message(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text= "我是電影機器人，您輸入的是：" + event.message.text + "。祝福您有個美好的一天！" ))
+
 
 if __name__ == "__main__":
     app.run()
