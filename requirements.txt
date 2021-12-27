@@ -1,0 +1,6 @@
+unicode_literals
+os
+flask
+linebot
+configparser
+random
