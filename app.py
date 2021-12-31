@@ -69,8 +69,7 @@ def novel_list():
     collection_ref = db.collection("小說")
     docs = collection_ref.order_by("title").get()
     for doc in docs[:10]:
-        for title in doc.to_dict()["title"]:
-            info += "title:" + title +"\n"
+        info += doc.to_dict()["title"]
     return info
 
 
