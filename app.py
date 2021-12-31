@@ -69,11 +69,11 @@ def novel_list():
     info = ""
     collection_ref = db.collection("小說")
     docs = collection_ref.order_by("title").get()
-    for time in range(10):
+    for time in range(5):
         num = random.randrange(len(docs))
         info += "Title: " + docs[num].to_dict()["title"] + "\n"
         info += "New Chapter: " + docs[num].to_dict()["new chapter"] + "\n"
-        info += "Update Time: " + docs[num].to_dict()["update time"] + "\n"
+        info += "Update Time: " + docs[num].to_dict()["update time"] + "\n\r"
     return info
 
 
