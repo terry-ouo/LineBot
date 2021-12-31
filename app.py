@@ -63,11 +63,11 @@ def handle_message(event):
         
 
 def novel_list():
-    info ="empty"
+    info =""
     collection_ref = db.collection("小說")
     docs = collection_ref.order_by("title").get()
     for doc in docs[:10]:
-        info += doc.to_dict()["title"]
+        info += doc.to_dict()["title"] + "\n"
     return info
 
 
