@@ -70,7 +70,7 @@ def novel_list():
     docs = collection_ref.order_by("title").get()
     for doc in docs[:10]:
         info += doc.to_dict()["title"]
-    return info
+    return "123"
 
 
 def find_update(url):
