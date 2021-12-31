@@ -65,7 +65,8 @@ def handle_message(event):
 def novel_list():
     info =""
     collection_ref = db.collection("小說")
-    for doc in collection_ref[:5]:
+    docs = collection_ref.order_by("title").get()
+    for doc in docs:
         info += doc
     return info
 
