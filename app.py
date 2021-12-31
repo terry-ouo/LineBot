@@ -73,7 +73,7 @@ def novel_list():
         num = random.randrange(len(docs))
         info += "Title: " + docs[num].to_dict()["title"] + "\n"
         info += "New Chapter: " + docs[num].to_dict()["new chapter"] + "\n"
-        info += "Update Time: " + docs[num].to_dict()["update time"] + "\n\r"
+        info += "Update Time: " + docs[num].to_dict()["update time"] + "\n\n"
     return info
 
 
