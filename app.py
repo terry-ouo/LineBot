@@ -70,6 +70,7 @@ def novel_list():
     docs = collection_ref.order_by("title").get()
     for doc in docs[:10]:
         info += doc.to_dict()["title"]
+        print("123")
     return "123"
 
 
