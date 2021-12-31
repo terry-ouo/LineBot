@@ -68,6 +68,7 @@ def novel_list():
     docs = collection_ref.order_by("title").get()
     for doc in docs:
         info += doc
+    info += "HI"
     return info
 
 
