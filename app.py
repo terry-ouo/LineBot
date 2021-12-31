@@ -72,7 +72,7 @@ def novel_list():
     for time in range(10):
         num = random.randrange(len(docs))
         info += docs[num].to_dict()["title"] + "\n"
-        info += docs[num].to_dict()["new"] + "\n"
+        # info += docs[num].to_dict()["new"] + "\n"
     return info
 
 
