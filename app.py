@@ -15,6 +15,7 @@ from firebase_admin import credentials, firestore
 import requests
 from flask import Flask, app, render_template,request
 from flask.helpers import url_for
+import random
 
 app = Flask(__name__)
 
@@ -66,6 +67,8 @@ def novel_list():
     info =""
     collection_ref = db.collection("小說")
     docs = collection_ref.order_by("title").get()
+    num = random.randrange(len(docs))
+    print(num)
     for doc in docs[:10]:
         info += doc.to_dict()["title"] + "\n"
     return info
