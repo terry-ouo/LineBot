@@ -73,7 +73,7 @@ def novel_list():
     # docs_update_time = collection_ref.order_by("update time").get()
     for time in range(10):
         num = random.randrange(len(docs))
-        info += "Title: " + docs[num].to_dict()["title"] + "\n"
+        info += "Title: " + docs[num].to_dict()["new chapter"] + "\n"
         # info += "New Chapter: " + docs_new[num].to_dict()["new chapter"] + "\n"
         # info += "Update Time: " + docs_update_time[num].to_dict()["update time"] + "\n"
     return info
