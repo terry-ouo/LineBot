@@ -69,8 +69,9 @@ def novel_list():
     docs = collection_ref.order_by("title").get()
     num = random.randrange(len(docs))
     print(num)
-    for doc in docs[:10]:
-        info += doc.to_dict()["title"] + "\n"
+    for time in range(10):
+        for doc in docs[num]:
+            info += doc.to_dict()["title"] + "\n"
     return info
 
 
