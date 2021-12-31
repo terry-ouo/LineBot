@@ -69,13 +69,13 @@ def novel_list():
     info = ""
     collection_ref = db.collection("小說")
     docs = collection_ref.order_by("title").get()
-    docs_new = collection_ref.order_by("new").get()
-    docs_update_time = collection_ref.order_by("update_time").get()
+    docs_new = collection_ref.order_by("new chapter").get()
+    docs_update_time = collection_ref.order_by("update time").get()
     for time in range(10):
         num = random.randrange(len(docs))
         info += "Title: " + docs[num].to_dict()["title"] + "\n"
-        info += "New Chapter: " + docs_new[num].to_dict()["new"] + "\n"
-        info += "Update Time: " + docs_update_time[num].to_dict()["update_time"] + "\n"
+        info += "New Chapter: " + docs_new[num].to_dict()["new chapter"] + "\n"
+        info += "Update Time: " + docs_update_time[num].to_dict()["update time"] + "\n"
     return info
 
 
