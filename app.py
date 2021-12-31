@@ -56,10 +56,11 @@ def callback():
 def handle_message(event):
     message = event.message.text
     if (message[:4].upper() == "LIST") :
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text = "step1"))
         res = novel_list()
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text = "OK"))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text = res))
+    else:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text = "Fail"))
         
 
 def novel_list():
@@ -67,8 +68,8 @@ def novel_list():
     collection_ref = db.collection("小說")
     docs = collection_ref.order_by("title").get()
     for doc in docs:
-        info += doc
-    info += "HI"
+        for title in doc.to_dict()["title"]:
+            info += "title:" + doc.to_dict()["title"] +"\n"
     return info
 
 
