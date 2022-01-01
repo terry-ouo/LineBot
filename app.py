@@ -71,7 +71,7 @@ def handle_message(event):
         handle_message(event)
         event = int(event.message.text)
         result = finger_guess_game_judge(finger_guess_game_player(event), finger_guess_game_pc())
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="result"))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Fail"))
 
