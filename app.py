@@ -65,7 +65,7 @@ def handle_message(event):
     elif message == "行事曆":
         image_message = ImageSendMessage(
             original_content_url=config.schedule,
-            preview_image_url=config.schedule
+            preview_image_url=config.pre_schedule
         )
         line_bot_api.reply_message(event.reply_token, image_message)
     else:
