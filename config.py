@@ -6,4 +6,4 @@ cred_name = "ServiceKey.json"
 
 weather_url = "https://www.cwb.gov.tw/V8/C/W/week.html"
 
-schedule = "http://120.110.112.126/schedul.jpg"
+schedule = "https://www.cloudflare.com/img/learning/cdn/glossary/ttl/icmp-traceroute-diagram.png"
