@@ -13,8 +13,7 @@ from bs4 import BeautifulSoup
 import firebase_admin
 from firebase_admin import credentials, firestore
 import requests
-from flask import Flask, app, render_template, request
-from flask.helpers import url_for
+from flask import Flask, app, request
 import random
 import config
 
@@ -30,7 +29,6 @@ db = firestore.client()
 @app.route("/")
 def index():
     home = "<a href=/spider>蜘蛛</a><br>"
-    home += "<a href=/try>try</a>"
     return home
 
 
@@ -58,7 +56,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = event.message.text
-
+    # 判斷呼叫的方法
     if message[:4].upper() == "LIST":
         res = novel_list()
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=res))
@@ -68,10 +66,13 @@ def handle_message(event):
             preview_image_url=config.pre_schedule
         )
         line_bot_api.reply_message(event.reply_token, image_message)
+    elif message == "小遊戲":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入數字 1. 布 2.剪刀 3.石頭"))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Fail"))
 
 
+# 用戶端呼叫LIST，執行，出現10本隨機小說
 def novel_list():
     info = ""
     collection_ref = db.collection("小說")
@@ -84,6 +85,7 @@ def novel_list():
     return info
 
 
+# 尋找資料的最新章節還有更新日期
 def find_update(url):
     data = requests.get(url)
     data.encoding = "utf-8"
@@ -102,7 +104,7 @@ def find_update(url):
                 return dic
 
 
-# 網頁爬蟲
+# 抓取小說資料，不分類
 @app.route("/spider")
 def spider():
     # 網址
@@ -135,9 +137,37 @@ def spider():
     return "已經上傳完畢"
 
 
-@app.route("/try")
-def try_page():
-    return "ok"
+# 猜拳遊戲
+def finger_guess_game_player(event):
+    hand = ["paper", "scissor", "stone"]
+    player = hand[event.message.text]
+    return player
+
+
+def finger_guess_game_pc():
+    choice = random.randrange(3)
+    hand = ["paper", "scissor", "stone"]
+    pc = hand[choice]
+    return pc
+
+
+def finger_guess_game_judge(player, pc):
+    player = player.lower()
+    pc = pc.lower()
+    if pc == player:
+        return "tie"
+    if pc == "paper" and player == "scissor":
+        return "player win!"
+    elif pc == "paper" and player == "stone":
+        return "pc win!"
+    if pc == "scissor" and player == "paper":
+        return "pc win!"
+    elif pc == "scissor" and player == "stone":
+        return "player win!"
+    if pc == "stone" and player == "paper":
+        return "player win!"
+    elif pc == "stone" and player == "scissor":
+        return "pc win!"
 
 
 if __name__ == "__main__":
