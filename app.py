@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage,
 )
 from bs4 import BeautifulSoup
 import firebase_admin
@@ -29,7 +29,7 @@ db = firestore.client()
 
 @app.route("/")
 def index():
-    home = "<a href=/spider>蜘蛛</a>"
+    home = "<a href=/spider>蜘蛛</a><br>"
     home += "<a href=/try>try</a>"
     return home
 
@@ -61,6 +61,12 @@ def handle_message(event):
     if message[:4].upper() == "LIST":
         res = novel_list()
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=res))
+    elif message == "行事曆":
+        image_message = ImageSendMessage(
+            original_content_url=config.schedule,
+            preview_image_url=config.schedule
+        )
+        line_bot_api.reply_message(event.reply_token, image_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Fail"))
 
