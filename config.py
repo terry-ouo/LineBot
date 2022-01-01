@@ -6,4 +6,4 @@ cred_name = "ServiceKey.json"
 
 weather_url = "https://www.cwb.gov.tw/V8/C/W/week.html"
 
-schedule = "https://www.pu.edu.tw/var/file/0/1000/img/625294453.pdf"
+schedule = "http://120.110.112.126/schedul.jpg"
