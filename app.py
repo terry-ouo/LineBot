@@ -70,9 +70,9 @@ def handle_message(event):
     elif message == "小遊戲":
         game = 1
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入數字 1. 布 2.剪刀 3.石頭"))
-    elif game == 1 and message == int(1) or message == int(2) or message == int(3):
+    elif game == 1 and message == 1 or message == 2 or message == 3:
         game = 0
-        result = finger_guess_game_judge(finger_guess_game_player(message), finger_guess_game_pc())
+        result = finger_guess_game_judge(finger_guess_game_player(int(message)), finger_guess_game_pc())
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Fail"))
