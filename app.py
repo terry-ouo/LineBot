@@ -56,6 +56,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = event.message.text
+    game = 0
     # 判斷呼叫的方法
     if message[:4].upper() == "LIST":
         res = novel_list()
@@ -67,10 +68,12 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, image_message)
     elif message == "小遊戲":
+        game = 1
         line_bot_api.reply_message(handle_message(event), TextSendMessage(text="小遊戲:猜拳! \n請輸入數字 1. 布 2.剪刀 3.石頭"))
-        event = int(event.message.text)
+    elif game == 1 and message == 1 or 2 or 3:
+        game = 0
         result = finger_guess_game_judge(finger_guess_game_player(event), finger_guess_game_pc())
-        line_bot_api.reply_message(TextSendMessage(text="result"))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Fail"))
 
