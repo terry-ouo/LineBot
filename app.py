@@ -160,19 +160,19 @@ def finger_guess_game_judge(even):
     player = finger_guess_game_player(even).lower()
     pc = finger_guess_game_pc().lower()
     if pc == player:
-        return "tie"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="tie"))
     if pc == "paper" and player == "scissor":
-        return "player win!"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="player win"))
     elif pc == "paper" and player == "stone":
-        return "pc win!"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="pc win"))"
     if pc == "scissor" and player == "paper":
-        return "pc win!"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="pc win"))
     elif pc == "scissor" and player == "stone":
-        return "player win!"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="player win"))
     if pc == "stone" and player == "paper":
-        return "player win!"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="player win"))
     elif pc == "stone" and player == "scissor":
-        return "pc win!"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="pc win"))
 
 if __name__ == "__main__":
     app.run()
