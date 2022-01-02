@@ -56,9 +56,6 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = event.message.text
-    method = {
-        "小遊戲": finger_guess_game_judge()
-    }
     # 判斷呼叫的方法
     if message[:4].upper() == "LIST":
         res = novel_list()
