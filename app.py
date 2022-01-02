@@ -67,10 +67,10 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, image_message)
     elif message == "小遊戲":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入數字 1. 布 2.剪刀 3.石頭"))
-        handle_message(event)
-        result = finger_guess_game_judge(finger_guess_game_judge(event))
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入數字 1.布 2.剪刀 3.石頭"))
+        if message == "1"
+            result = finger_guess_game_judge(finger_guess_game_judge(event))
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     elif message[:4].upper() == "HELP":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.help_information))
     else:
