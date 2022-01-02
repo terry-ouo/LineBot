@@ -143,9 +143,9 @@ def spider():
 
 
 # 猜拳遊戲
-def finger_guess_game_player(event-1):
+def finger_guess_game_player(event):
     hand = ["paper", "scissor", "stone"]
-    player = hand[event.message.text]
+    player = hand[event-1]
     return player
 
 
