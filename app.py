@@ -164,7 +164,7 @@ def finger_guess_game_judge(even):
     if pc == "paper" and player == "scissor":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="player win"))
     elif pc == "paper" and player == "stone":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="pc win"))"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="pc win"))
     if pc == "scissor" and player == "paper":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="pc win"))
     elif pc == "scissor" and player == "stone":
