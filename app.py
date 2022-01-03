@@ -69,7 +69,7 @@ def handle_message(event):
     elif message == "小遊戲":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入數字 1.布 2.剪刀 3.石頭"))
     elif message == "1":
-        result = finger_guess_game_judge(finger_guess_game_player(event))
+        result = finger_guess_game_judge(1)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     elif message[:4].upper() == "HELP":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.help_information))
@@ -160,19 +160,19 @@ def finger_guess_game_judge(even):
     player = finger_guess_game_player(even).lower()
     pc = finger_guess_game_pc().lower()
     if pc == player:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="tie"))
+        return "tie!"
     if pc == "paper" and player == "scissor":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="player win"))
+        return "player win!"
     elif pc == "paper" and player == "stone":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="pc win"))
+        return "pc win!"
     if pc == "scissor" and player == "paper":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="pc win"))
+        return "pc win!"
     elif pc == "scissor" and player == "stone":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="player win"))
+        return "player win!"
     if pc == "stone" and player == "paper":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="player win"))
+        return "player win!"
     elif pc == "stone" and player == "scissor":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="pc win"))
+        return "pc win!"
 
 if __name__ == "__main__":
     app.run()
