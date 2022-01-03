@@ -2,14 +2,14 @@ import random
 
 
 def finger_guess_game_player(event):
-    hand = ["paper", "scissor", "stone"]
+    hand = ["paper", "剪刀", "石頭"]
     player = hand[event-1]
     return player
 
 
 def finger_guess_game_pc():
     choice = random.randrange(3)
-    hand = ["paper", "scissor", "stone"]
+    hand = ["paper", "剪刀", "石頭"]
     pc = hand[choice]
     return pc
 
@@ -19,17 +19,17 @@ def finger_guess_game_judge(player, pc):
     pc = pc.lower()
     if pc == player:
         return "tie"
-    if pc == "paper" and player == "scissor":
+    if pc == "paper" and player == "剪刀":
         return "player win!"
-    elif pc == "paper" and player == "stone":
+    elif pc == "paper" and player == "石頭":
         return "pc win!"
-    if pc == "scissor" and player == "paper":
+    if pc == "剪刀" and player == "paper":
         return "pc win!"
-    elif pc == "scissor" and player == "stone":
+    elif pc == "剪刀" and player == "石頭":
         return "player win!"
-    if pc == "stone" and player == "paper":
+    if pc == "石頭" and player == "paper":
         return "player win!"
-    elif pc == "stone" and player == "scissor":
+    elif pc == "石頭" and player == "剪刀":
         return "pc win!"
 
 
