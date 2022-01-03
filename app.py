@@ -67,7 +67,7 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, image_message)
     elif message == "小遊戲":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入數字 1.布 2.剪刀 3.石頭"))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入 剪刀 or 石頭 or 布"))
     elif message == "布":
         result = finger_guess_game_judge(1)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
@@ -80,7 +80,7 @@ def handle_message(event):
     elif message[:4].upper() == "HELP":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.help_information))
     else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Fail"))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.error))
 
 
 # 用戶端呼叫LIST，執行，出現10本隨機小說
@@ -166,19 +166,19 @@ def finger_guess_game_judge(even):
     player = finger_guess_game_player(even)
     pc = finger_guess_game_pc()
     if pc == player:
-        return pc + "\n\ntie!"
+        return pc + "\n\ntie!ಠ_ರೃ"
     if pc == "布" and player == "剪刀":
-        return pc + "\n\nplayer win!"
+        return pc + "\n\nplayer win!(｡◝‿◜｡)"
     elif pc == "布" and player == "石頭":
-        return pc + "\n\npc win!"
+        return pc + "\n\npc win!(;´Д`)×"
     if pc == "剪刀" and player == "布":
-        return pc + "\n\npc win!"
+        return pc + "\n\npc win!⁽͑˙˚̀⚐˚́˙⁾̉"
     elif pc == "剪刀" and player == "石頭":
-        return pc + "\n\nplayer win!"
+        return pc + "\n\nplayer win!(´︶｀)"
     if pc == "石頭" and player == "paper":
-        return pc + "\n\nplayer win!"
+        return pc + "\n\nplayer win!(≧◡≦)"
     elif pc == "石頭" and player == "剪刀":
-        return pc + "\n\npc win!"
+        return pc + "\n\npc win!(╯︵╰,)"
 
 
 if __name__ == "__main__":
