@@ -18,7 +18,6 @@ import random
 import config
 
 app = Flask(__name__)
-
 line_bot_api = LineBotApi(config.line_bot_key)
 handler = WebhookHandler(config.handler_key)
 cred = credentials.Certificate(config.cred_name)
@@ -55,6 +54,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    game_status = False
     message = event.message.text
     # 判斷呼叫的方法
     if message == "小說":
@@ -67,14 +67,18 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, image_message)
     elif message == "小遊戲":
+        game_status = True
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入 剪刀 or 石頭 or 布"))
-    elif message == "布":
+    elif message == "布" and game_status:
+        game_status = False
         result = finger_guess_game_judge(1)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
-    elif message == "剪刀":
+    elif message == "剪刀" and game_status:
+        game_status = False
         result = finger_guess_game_judge(2)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
-    elif message == "石頭":
+    elif message == "石頭" and game_status:
+        game_status = False
         result = finger_guess_game_judge(3)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     elif message[:4].upper() == "HELP":
