@@ -90,7 +90,7 @@ def handle_message(event):
     elif message == "石頭":
         result = game.finger_guess_game_judge(3)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
-    elif message[:6].lower() == "player" and message[6:] == "1":
+    elif message == "1":
         result = game.circle_game_write("player", "1")
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     elif message[:4].upper() == "HELP":
