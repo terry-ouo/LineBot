@@ -4,7 +4,7 @@ import config
 
 
 def finger_guess_game_player(event):
-    hand = ["paper", "剪刀", "石頭"]
+    hand = ["布", "剪刀", "石頭"]
     player = hand[event]
     return player
 
