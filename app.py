@@ -83,7 +83,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入 剪刀 or 石頭 or 布"))
     elif message == "布":
         result = game.finger_guess_game_judge(1)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="123"))
     elif message == "剪刀":
         result = game.finger_guess_game_judge(2)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
