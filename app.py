@@ -93,6 +93,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.help_information))
     elif message[:6].upper() == "REPORT":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.report))
+    elif message.upper() == "EDITOR":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.can_editor))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.error))
 
