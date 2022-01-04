@@ -85,7 +85,8 @@ def circle_game_write(player, position):
             config.table[4][2] = "X"
         elif position == "9":
             config.table[4][4] = "X"
-    return circle_game_return()
+    result = circle_game_judge()
+    return circle_game_return() + "\n" + result
 
 
 def circle_game_judge():
@@ -144,5 +145,14 @@ def circle_game_judge():
         return reply
 
 
-print(circle_game_write("player", "5"))
-print(circle_game_write("pc", "3"))
+def reset():
+    config.table = [
+        [" ", "|", " ", "|", " "],
+        ["-", "-", "-", "-", "-"],
+        [" ", "|", " ", "|", " "],
+        ["-", "-", "-", "-", "-"],
+        [" ", "|", " ", "|", " "]
+    ]
+
+
+reset()
