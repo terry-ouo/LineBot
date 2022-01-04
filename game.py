@@ -86,7 +86,7 @@ def circle_game_write(player, position):
         elif position == "9":
             config.table[4][4] = "X"
     result = circle_game_judge()
-    return circle_game_return() + "\n" + result
+    return circle_game_return() 
 
 
 def circle_game_judge():
