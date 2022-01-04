@@ -16,6 +16,7 @@ import requests
 from flask import Flask, app, request
 import random
 import config
+import game
 
 app = Flask(__name__)
 
@@ -81,7 +82,7 @@ def handle_message(event):
     elif message == "小遊戲":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入 剪刀 or 石頭 or 布"))
     elif message == "布":
-        result = finger_guess_game_judge(0)
+        result = game.finger_guess_game_judge(0)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     elif message == "剪刀":
         result = finger_guess_game_judge(1)

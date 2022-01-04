@@ -1,5 +1,5 @@
 # 猜拳遊戲
-from random import random
+import random
 import config
 
 
