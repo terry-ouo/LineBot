@@ -16,7 +16,6 @@ import requests
 from flask import Flask, app, request
 import random
 import config
-import game
 
 app = Flask(__name__)
 
@@ -85,22 +84,10 @@ def handle_message(event):
         result = finger_guess_game_judge(1)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     elif message == "剪刀":
-        result = game.finger_guess_game_judge(2)
+        result = finger_guess_game_judge(2)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     elif message == "石頭":
-        result = game.finger_guess_game_judge(3)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
-    elif message[:6].upper() == "PLAYER" and message[6] == "1":
-        result = game.circle_game_write("player", "1")
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
-    elif message[:6].upper() == "PLAYER" and message[6] == "2":
-        result = game.circle_game_write("player", "2")
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
-    elif message[:6].upper() == "PLAYER" and message[6] == "3":
-        result = game.circle_game_write("player", "3")
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
-    elif message[:6].upper() == "PLAYER" and message[6] == "4":
-        result = game.circle_game_write("player", "4")
+        result = finger_guess_game_judge(3)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     elif message[:4].upper() == "HELP":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.help_information))
@@ -177,6 +164,7 @@ def spider():
     return "已經上傳完畢"
 
 
+# 猜拳遊戲
 def finger_guess_game_player(event):
     hand = ["paper", "剪刀", "石頭"]
     player = hand[event - 1]
@@ -207,7 +195,6 @@ def finger_guess_game_judge(even):
         return pc + "\n\nplayer win!(≧◡≦)"
     elif pc == "石頭" and player == "剪刀":
         return pc + "\n\npc win!(╯︵╰,)"
-
 
 
 if __name__ == "__main__":
