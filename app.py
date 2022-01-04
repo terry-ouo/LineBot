@@ -82,8 +82,8 @@ def handle_message(event):
     elif message == "小遊戲":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入 剪刀 or 石頭 or 布"))
     elif message == "布":
-        # result = game.finger_guess_game_judge(1)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="123"))
+        result = finger_guess_game_judge(1)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     elif message == "剪刀":
         result = game.finger_guess_game_judge(2)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
@@ -175,6 +175,39 @@ def spider():
                 doc_ref.set(doc)
 
     return "已經上傳完畢"
+
+
+def finger_guess_game_player(event):
+    hand = ["paper", "剪刀", "石頭"]
+    player = hand[event - 1]
+    return player
+
+
+def finger_guess_game_pc():
+    choice = random.randrange(3)
+    hand = ["布", "剪刀", "石頭"]
+    pc = hand[choice]
+    return pc
+
+
+def finger_guess_game_judge(even):
+    player = finger_guess_game_player(even)
+    pc = finger_guess_game_pc()
+    if pc == player:
+        return pc + "\n\ntie!ಠ_ರೃ"
+    if pc == "布" and player == "剪刀":
+        return pc + "\n\nplayer win!(｡◝‿◜｡)"
+    elif pc == "布" and player == "石頭":
+        return pc + "\n\npc win!(;´Д`)×"
+    if pc == "剪刀" and player == "布":
+        return pc + "\n\npc win!⁽͑˙˚̀⚐˚́˙⁾̉"
+    elif pc == "剪刀" and player == "石頭":
+        return pc + "\n\nplayer win!(´︶｀)"
+    if pc == "石頭" and player == "paper":
+        return pc + "\n\nplayer win!(≧◡≦)"
+    elif pc == "石頭" and player == "剪刀":
+        return pc + "\n\npc win!(╯︵╰,)"
+
 
 
 if __name__ == "__main__":
