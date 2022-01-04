@@ -93,6 +93,15 @@ def handle_message(event):
     elif message[:6].upper() == "PLAYER" and message[6] == "1":
         result = game.circle_game_write("player", "1")
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
+    elif message[:6].upper() == "PLAYER" and message[6] == "2":
+        result = game.circle_game_write("player", "2")
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
+    elif message[:6].upper() == "PLAYER" and message[6] == "3":
+        result = game.circle_game_write("player", "3")
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
+    elif message[:6].upper() == "PLAYER" and message[6] == "4":
+        result = game.circle_game_write("player", "4")
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result))
     elif message[:4].upper() == "HELP":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.help_information))
     elif message[:6].upper() == "REPORT":
