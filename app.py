@@ -96,6 +96,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.report))
     elif message.upper() == "EDITOR":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.can_editor))
+    elif message.upper() == "EN":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="我要幹死妳，咩噗(ﾟ∀ﾟ)"))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.error))
 
