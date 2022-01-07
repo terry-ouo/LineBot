@@ -79,6 +79,36 @@ def handle_message(event):
             preview_image_url=config.providence
         )
         line_bot_api.reply_message(event.reply_token, image_message)
+    elif message == "主顧咖啡":
+        image_message = ImageSendMessage(
+            original_content_url=config.cafe,
+            preview_image_url=config.cafe
+        )
+        line_bot_api.reply_message(event.reply_token, image_message)
+    elif message.lower() == "c和弦":
+        image_message = ImageSendMessage(
+            original_content_url=config.guitar,
+            preview_image_url=config.guitar
+        )
+        line_bot_api.reply_message(event.reply_token, image_message)
+    elif message == "彌豆子":
+        image_message = ImageSendMessage(
+            original_content_url=config.animation,
+            preview_image_url=config.animation
+        )
+        line_bot_api.reply_message(event.reply_token, image_message)
+    elif message == "王力宏":
+        image_message = ImageSendMessage(
+            original_content_url=config.Leehom,
+            preview_image_url=config.Leehom
+        )
+        line_bot_api.reply_message(event.reply_token, image_message)
+    elif message == "101":
+        image_message = ImageSendMessage(
+            original_content_url=config.tower,
+            preview_image_url=config.tower
+        )
+        line_bot_api.reply_message(event.reply_token, image_message)
     elif message == "小遊戲":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入 剪刀 or 石頭 or 布"))
     elif message == "布":

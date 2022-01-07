@@ -10,6 +10,8 @@ providence = "https://mgt.pu.edu.tw/var/file/10/1010/pictures/347/m/mczh-tw700x7
 cafe = "https://yama.tw/wp-content/uploads/20210331105341_46.jpg"
 guitar = "https://i1.kknews.cc/Vr1bZ9H8LoZU2ecMU0TkuDoUSp0uhWam8A3--VE/0.jpg"
 animation = "https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/9/9e/%E7%AB%88%E9%96%80%E7%A6%B0%E8%B1%86%E5%AD%90_%E5%8B%95%E7%95%AB%E8%B3%87%E8%A8%8A%E6%A1%86.png/revision/latest/scale-to-width-down/1200?cb=20190910133725&path-prefix=zh-tw"
+Leehom = "https://attach.setn.com/newsimages/2020/07/16/2666328-PH.jpg"
+tower = "https://image.kkday.com/v2/image/get/w_960%2Cc_fit%2Cq_55%2Ct_webp/s1.kkday.com/product_8332/20170703102402_Oe0Ij/jpg"
 help_information ="若要觀看小說，請輸入小說\n若要玩小遊戲，請輸入小遊戲\n若要觀看下學期行事曆，請輸入行事曆\n若要觀看靜宜地圖，請輸入地圖\n若要觀看主顧聖母堂照片，請輸入主顧聖母堂\n若要觀看編輯者，請輸入editor\n輸入編輯者名稱會有意外收穫喔！"
 error = "沒有這個功能喔Σ(´д｀;) \n 相關功能請打 help \n 需要回報錯誤，或是有想提供的建議請打 report"
 can_editor = "創作者:\nTerry\nEN\nBigBoy\n阿旭\n水水水\n竣泓\nDorncy"
