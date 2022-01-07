@@ -97,7 +97,9 @@ def handle_message(event):
     elif message.upper() == "EDITOR":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.can_editor))
     elif message.upper() == "EN":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="我要幹死妳，咩噗(ﾟ∀ﾟ)"))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Terry是我的狗(ﾟ∀ﾟ)"))
+	elif message.upper() == "TERRY":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="EN的狗(ﾟ∀ﾟ)"))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.error))
 
