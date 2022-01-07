@@ -108,6 +108,11 @@ def handle_message(event):
             original_content_url=config.tower,
             preview_image_url=config.tower
         )
+        elif message == "章魚哥":
+        image_message = ImageSendMessage(
+            original_content_url=config.octopus,
+            preview_image_url=config.octopus
+        )
         line_bot_api.reply_message(event.reply_token, image_message)
     elif message == "小遊戲":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="小遊戲:猜拳! \n請輸入 剪刀 or 石頭 or 布"))
