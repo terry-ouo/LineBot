@@ -108,7 +108,7 @@ def handle_message(event):
             original_content_url=config.tower,
             preview_image_url=config.tower
         )
-        elif message == "章魚哥":
+    elif message == "章魚哥":
         image_message = ImageSendMessage(
             original_content_url=config.octopus,
             preview_image_url=config.octopus
