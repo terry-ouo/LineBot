@@ -108,6 +108,7 @@ def handle_message(event):
             original_content_url=config.tower,
             preview_image_url=config.tower
         )
+        line_bot_api.reply_message(event.reply_token, image_message)
     elif message == "章魚哥":
         image_message = ImageSendMessage(
             original_content_url=config.octopus,
@@ -132,9 +133,23 @@ def handle_message(event):
     elif message.upper() == "EDITOR":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.can_editor))
     elif message.upper() == "EN":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Terry是我的狗(ﾟ∀ﾟ)"))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.can_en))
     elif message.upper() == "TERRY":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text="EN的狗(ﾟ∀ﾟ)"))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.can_terry))
+    elif message.upper() == "BIGBOY":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.can_bigboy))
+    elif message == "阿旭":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.can_sh))
+    elif message == "水水水":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.can_water))
+    elif message.upper() == "DORNCY":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.can_dorncy))
+    elif message == "竣泓":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.can_jun))
+    elif message == "睡不著":
+        num = random.randrange(len(config.cant_sleep))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.cant_sleep[num]))
+
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.error))
 
