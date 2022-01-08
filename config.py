@@ -13,8 +13,7 @@ animation = "https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/9/9e/%E7%
             "%AD%90_%E5%8B%95%E7%95%AB%E8%B3%87%E8%A8%8A%E6%A1%86.png/revision/latest/scale-to-width-down/1200?cb" \
             "=20190910133725&path-prefix=zh-tw "
 Leehom = "https://attach.setn.com/newsimages/2020/07/16/2666328-PH.jpg"
-tower = "https://image.kkday.com/v2/image/get/w_960%2Cc_fit%2Cq_55%2Ct_webp/s1.kkday.com/product_8332" \
-        "/20170703102402_Oe0Ij/jpg "
+tower = "https://blog.kkday.com/wp-content/uploads/Taiwan_Taipei_Taipei-101_AShutterstock_28310509.jpg"
 octopus = "https://i.imgur.com/twIxFZ9.jpeg"
 help_information = "若要觀看小說，請輸入小說\n若要玩小遊戲，請輸入小遊戲\n若要觀看下學期行事曆，請輸入行事曆\n若要觀看靜宜地圖，請輸入地圖\n若要觀看主顧聖母堂照片，請輸入主顧聖母堂\n若要觀看主顧咖啡照片，請輸入主顧咖啡\n想看C和弦的話可以輸入C和弦喔\n若想看彌豆子，請輸入彌豆子\n若想看到王力宏，請輸入王力宏\n若想看到101，請輸入101\n若想看到章魚哥，請輸入章魚哥\n若是睡不著，可以輸入睡不著來看看該怎麼辦喔~\n" \
                    "若要觀看編輯者，請輸入editor\n輸入編輯者名稱會有意外收穫喔！ "
