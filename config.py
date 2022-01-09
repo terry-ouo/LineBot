@@ -28,4 +28,5 @@ can_water = "蘇波愛斗的笑容，都沒我的甜(´︶｀)"
 can_dorncy = "歸剛ㄟ(¬_¬ )"
 can_jun = "達浪~達浪~達浪達浪~"
 report = "https://forms.gle/v2eiF5RemsYpWSyM9"
+manual = "https://hackmd.io/@43DrZaWRRby0eWWMuvGt4Q/H1bUIRInY"
 

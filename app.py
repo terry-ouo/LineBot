@@ -149,6 +149,8 @@ def handle_message(event):
     elif message == "睡不著":
         num = random.randrange(len(config.cant_sleep))
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.cant_sleep[num]))
+    elif message == "專案手冊":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.manual))
 
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=config.error))
