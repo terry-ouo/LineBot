@@ -123,8 +123,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, image_message)
     elif message == "資管系":
         image_message = ImageSendMessage(
-            original_content_url=config.octopus,
-            preview_image_url=config.octopus
+            original_content_url=config.csim,
+            preview_image_url=config.csim
         )
         line_bot_api.reply_message(event.reply_token, image_message)
     elif message == "小遊戲":
