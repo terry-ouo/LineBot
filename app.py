@@ -61,6 +61,12 @@ def handle_message(event):
     if message == "小說":
         res = novel_list()
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=res))
+    elif message == "霹靂卡霹靂拉拉":
+        res = "波波莉娜貝貝魯多"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=res))
+    elif message == "想不到":
+        res = "別打我 我再想想"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=res))
     elif message == "行事曆":
         image_message = ImageSendMessage(
             original_content_url=config.schedule,
@@ -110,6 +116,12 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, image_message)
     elif message == "章魚哥":
+        image_message = ImageSendMessage(
+            original_content_url=config.octopus,
+            preview_image_url=config.octopus
+        )
+        line_bot_api.reply_message(event.reply_token, image_message)
+    elif message == "資管系":
         image_message = ImageSendMessage(
             original_content_url=config.octopus,
             preview_image_url=config.octopus
